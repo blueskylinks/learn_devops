@@ -15,7 +15,7 @@ spec:
 	- image: ubuntu
 	  imagePullPolicy: IfNotPresent
 	  name: myvol-con3
-	  command: ['sh','-c','echo The Bench container2 is running ; sleep 3600']
+	  command: ['/bin/hash','-c','echo The Bench container2 is running ; sleep 3600']
 	  volumeMounts:
 	  - mountPath: /demo2
 	    name: demo-vol

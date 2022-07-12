@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
 	name: myvol-pod
-spac:
+spec:
 	containers:
 	- image: centos
 	  imagePullPolicy: IfNotPresent
@@ -28,6 +28,6 @@ spac:
 	  - mountPath: /demo3
 	    name: demo-vol	
 		
-	volume:
+	volumes:
 	- name: demo-volume
 	  emptyDir: {}

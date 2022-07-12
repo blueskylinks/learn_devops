@@ -1,33 +1,32 @@
-apiVersion: v1
 kind: Pod
 metadata:
-	name: myvol-pod
+ name: myvol-pod
 spec:
-	containers:
-	- image: centos
-	  imagePullPolicy: IfNotPresent
-	  name: myvol-con1
-	  command: ['sh','-c','echo The Bench container1 is running ; sleep 3600']
-	  volumeMounts:
-	  - mountPath: /demo1
-	    name: demo-vol
+ containers:
+ - image: centos
+   imagePullPolicy: IfNotPresent
+   name: myvol-con1
+   command: ['sh','-c','echo The Bench container1 is running ; sleep 900']
+   volumeMounts:
+   - mountPath: /demo1
+     name: demo-vol
 		
-	- image: ubuntu
-	  imagePullPolicy: IfNotPresent
-	  name: myvol-con3
-	  command: ['/bin/hash','-c','echo The Bench container2 is running ; sleep 3600']
-	  volumeMounts:
-	  - mountPath: /demo2
-	    name: demo-vol
+ - image: ubuntu
+   imagePullPolicy: IfNotPresent
+   name: myvol-con2
+   command: ['/bin/bash','-c','echo The Bench container2 is running ; sleep 900']
+   volumeMounts:
+   - mountPath: /demo2
+     name: demo-vol
 		
-	- image: alpine
-	  imagePullPolicy: IfNotPresent
-	  name: myvol-con3
-	  command: ['sh','-c','echo The Bench container3 is running ; sleep 3600']
-	  volumeMounts:
-	  - mountPath: /demo3
-	    name: demo-vol	
-		
-	volumes:
-	- name: demo-volume
-	  emptyDir: {}
+ - image: alpine
+   imagePullPolicy: IfNotPresent
+   name: myvol-con3
+   command: ['sh','-c','echo The Bench container3 is running ; sleep 900']
+   volumeMounts:
+   - mountPath: /demo3
+     name: demo-vol
+	 
+ valumes:
+ - name: demo-vol
+   emptyDir: {}
